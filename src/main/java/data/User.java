@@ -6,7 +6,7 @@ public class User {
     public String password = "admin123";//"TomFord1"; //"12345678";
     public String employeeName ="Alice Duval";//"Tom Ford"; //"Alice Duval"; "Aaliyah Haq";
     public String invalidEmployeeName ="Marc Tven";
-    public String adminAddUserName = "AliceDu";//"Alice_Duval"; "Chris Hampton";
+    public String adminAddUserName = "AliceDuv";//"Alice_Duval"; "Chris Hampton";
     public String adminAddUserPassword = "QWER1234";
     public String fromDate = "2021-11-01";
     public String toDate = "2021-11-10";
