@@ -47,7 +47,7 @@ public class RecruitmentTab {
         candidateEmailField.val(candidate.getEmail());
         candidateContactNoField.val(candidate.getContactNo());
         jobVacancyField.selectOption(2);
-        resumeField.uploadFromClasspath("resume.txt");
+      //  resumeField.uploadFromClasspath("resume.txt");
         keyWordsField.val(candidate.getKeyWords());
         commentField.val(candidate.getComment());
        // dateOfApplicationField.val(candidate.getDateOfApplication());
