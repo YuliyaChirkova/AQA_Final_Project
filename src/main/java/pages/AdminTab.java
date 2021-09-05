@@ -122,7 +122,7 @@ public class AdminTab {
     public void fillAllFieldsForAddingJobTitle(String jobTitle, String jobDescription, String jobNote){
         jobTitleField.val(jobTitle);
         jobDescriptionField.val(jobDescription);
-       // jobSpecificationField.uploadFromClasspath("picture.jpg");
+        jobSpecificationField.uploadFromClasspath("picture.jpg");
         jobNoteField.val(jobNote);
     }
     @Step("Выбор чекбокса добавленного JobTitle")

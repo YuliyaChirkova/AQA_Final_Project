@@ -42,7 +42,7 @@ public class TestClass extends BeforeAfterEach {
 
     }
 
-    @Order(2)
+   /* @Order(2)
     @Test
     @Flaky
     @Description("Тест добавление пользователя для существующего сотрудника, позитивный тест")
@@ -59,7 +59,6 @@ public class TestClass extends BeforeAfterEach {
         adminTab.clickSaveButton();
         adminTab.checkUserExisting(user);
     }
-
     @Disabled ("Включить,если тест addUserTest() провалился")
     @Order(9)
     @Test
@@ -109,9 +108,9 @@ public class TestClass extends BeforeAfterEach {
       //  adminTab.jobTitles.findBy(exactText(jobTitle)).should(exist);
         adminTab.checkJobTitleIsExists(jobTitle);
         adminTab.deleteJobTitle(jobTitle);
-       /* adminTab.clickCheckBox(jobTitle);
+        adminTab.clickCheckBox(jobTitle);
         adminTab.deleteJobTitleButton.click();
-        adminTab.confirmationRequiredOKButton.shouldBe(visible).click();*/
+        adminTab.confirmationRequiredOKButton.shouldBe(visible).click();
        // adminTab.jobTitles.findBy(exactText(jobTitle)).shouldNot(exist);
         adminTab.checkJobTitleIsNotExists(jobTitle);
    }
@@ -198,5 +197,5 @@ public class TestClass extends BeforeAfterEach {
         pimTab.selectSales();
         pimTab.chooseSalesEmployee();
         pimTab.checkAllPersonalDetails();
-    }
+    }*/
 }

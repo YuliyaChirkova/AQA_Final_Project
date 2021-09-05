@@ -62,7 +62,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.7.0</version>
-             <!-- <scope>test</scope>-->
+            <!-- <scope>test</scope>-->
         </dependency>
 
         <dependency>
@@ -83,7 +83,7 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>5.23.0</version>
-              <!--<scope>compile</scope>-->
+            <!--<scope>compile</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
@@ -116,5 +116,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 
 </project>
