@@ -24,7 +24,6 @@ public class RecruitmentTab {
     protected SelenideElement resumeField = $(By.id("addCandidate_resume"));
     protected SelenideElement keyWordsField = $(By.id("addCandidate_keyWords"));
     protected SelenideElement commentField = $(By.id("addCandidate_comment"));
-    protected SelenideElement dateOfApplicationField = $(By.id("addCandidate_appliedDate"));
     protected SelenideElement keepDataCheckbox = $(By.id("addCandidate_consentToKeepData"));
     protected SelenideElement saveCandidateButton = $(By.id("btnSave"));
     protected SelenideElement createdCandidate =$(byXpath("//td[contains(text(), 'added " + candidate.getFirstName()+" " + candidate.getMiddleName()+" " +candidate.getLastName()+"')]"));
@@ -50,7 +49,6 @@ public class RecruitmentTab {
       //  resumeField.uploadFromClasspath("resume.txt");
         keyWordsField.val(candidate.getKeyWords());
         commentField.val(candidate.getComment());
-       // dateOfApplicationField.val(candidate.getDateOfApplication());
         keepDataCheckbox.click();
     }
 

@@ -60,14 +60,9 @@ public class LeaveTab {
         allCheckBox.click();
         employeeLeaveList.val(user.getEmployeeName());
         searchButton.click();
-
         $(byXpath("//a[text()='"+user.getEmployeeName()+"']")).should(Condition.exist);
     }
 
-
-    /*public void chooseEmployeeForAssignLeave(){
-        adminTab.click();
-    }*/
     @Step("Заполнение всех полей на странице Assign Leave")
     public void fillAllFieldsAssignLeave(User user){
         employeeNameField.should(Condition.exist).val(user.getEmployeeName());

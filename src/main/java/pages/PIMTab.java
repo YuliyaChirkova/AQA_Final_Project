@@ -22,7 +22,7 @@ public class PIMTab {
     protected SelenideElement middleNameField = $(By.id("personal_txtEmpMiddleName"));
     protected SelenideElement lastNameField = $(By.id("personal_txtEmpLastName"));
     protected SelenideElement employeeIDField = $(By.id("personal_txtEmployeeId"));
-    protected SelenideElement driversLicensenNoField = $(By.id("personal_txtLicenNo"));
+    protected SelenideElement driversLicenseNoField = $(By.id("personal_txtLicenNo"));
     protected SelenideElement ssnNoField = $(By.id("personal_txtNICNo"));
     protected SelenideElement otherIDField = $(By.id("personal_txtOtherID"));
     protected SelenideElement licExpDateField = $(By.id("personal_txtLicExpDate"));
@@ -60,7 +60,7 @@ public class PIMTab {
         middleNameField.should(Condition.exist);
         lastNameField.should(Condition.exist);
         employeeIDField.should(Condition.exist);
-        driversLicensenNoField.should(Condition.exist);
+        driversLicenseNoField.should(Condition.exist);
         ssnNoField.should(Condition.exist);
         otherIDField.should(Condition.exist);
         licExpDateField.should(Condition.exist);

@@ -14,8 +14,8 @@ import static com.codeborne.selenide.Selenide.$$;
 
 
 public class AdminTab {
-   String jobTitle;
- //   String userName;
+
+
     public String mainPageURL = "https://opensource-demo.orangehrmlive.com/index.php/dashboard";
     public SelenideElement adminTab = $(byText("Admin"));
     public SelenideElement addButton = $(By.id("btnAdd"));
@@ -28,27 +28,24 @@ public class AdminTab {
     public SelenideElement statusField = $(By.id("systemUser_status"));
     public SelenideElement passwordField = $(By.id("systemUser_password"));
     public SelenideElement confirmPasswordField = $(By.id("systemUser_confirmPassword"));
-   // public SelenideElement saveUserButton = $(By.id("btnSave"));
     public SelenideElement saveButton = $(By.id("btnSave"));
     public ElementsCollection employees = $$(byXpath("//tr[@class = 'odd']//td[4]"));
 
-    public ElementsCollection users = $$ ("a[href^='saveSystemUser']");////*[@id="resultTable"]/tbody/tr[1]/td[4]
+    public ElementsCollection users = $$ ("a[href^='saveSystemUser']");
     public SelenideElement user = $(byText("Admin"));
-    public SelenideElement jobTab = $(By.id("menu_admin_Job"));//tr[@class = 'odd']//td[4]
+    public SelenideElement jobTab = $(By.id("menu_admin_Job"));
     public SelenideElement jobTitleLink = $(byText("Job Titles"));
     public SelenideElement jobTitleAddButton = $(By.id("btnAdd"));
     public SelenideElement jobTitleField = $(By.id("jobTitle_jobTitle"));
     public SelenideElement jobDescriptionField = $(By.id("jobTitle_jobDescription"));
     public SelenideElement jobSpecificationField = $(By.id("jobTitle_jobSpec"));
     public SelenideElement jobNoteField = $(By.id("jobTitle_note"));
-   // public SelenideElement saveJobTitleButton = $(By.id("btnSave"));
     public ElementsCollection jobTitles = $$ ("a[href^='https://opensource-demo.orangehrmlive.com/index.php/admin/saveJobTitle']");
-   // public SelenideElement jobTitlesCheckBox =$(byXpath("//a[text()='"+jobTitle+"']/../..//following-sibling::td[1]/input"));//( ("a[text()="11']/../..//following-sibling::td[1]/input"))
     public SelenideElement deleteJobTitleButton = $(By.id("btnDelete"));
     public SelenideElement confirmationRequiredOKButton = $(By.id("dialogDeleteBtn"));
     public SelenideElement errorMessage = $(byText("Employee does not exist"));
 
-   // public SelenideElement userNameCheckBox =$(byXpath("//a[text()='"+userName+"']/../..//input[@type='checkbox']"));
+
 
     @Step("Открытие вкладки Admin")
     public void selectAdminTab(){
@@ -96,19 +93,10 @@ public class AdminTab {
         confirmPasswordField.should(Condition.exist).val(user.getAdminAddUserPassword());
     }
 
-   /* public int calculateAllUsers(){
-      return  users.size();
-    }*/
    @Step("Проверка наличия пользователя в списке пользователей")
     public void checkUserExisting(User user) {
-       // $(byText(user.getAdminAddUserName())).should(Condition.exist);
         $(byXpath("//a[text()='"+user.getAdminAddUserName()+"']")).should(Condition.exist);
     }
-
-   /* @Step("Нажатие на кнопку Save")
-    public void saveUser(){
-        saveButton.click();
-    }*/
 
     @Step("Переход на страницу добавления jobTitle")
     public void getJobTitlePage(){

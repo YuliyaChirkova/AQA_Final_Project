@@ -31,7 +31,6 @@ public class TestClass extends BeforeAfterEach {
     @Order(1)
     @Test
     @Description("Тест Логин на сайте")
-    @DisplayName("Тест Логин на сайте")
     @Feature("Логин")
     @Severity(SeverityLevel.BLOCKER)
     @Story(value = "Пользователь логинится на сайте")
@@ -42,11 +41,10 @@ public class TestClass extends BeforeAfterEach {
 
     }
 
-   /* @Order(2)
+    @Order(2)
     @Test
     @Flaky
     @Description("Тест добавление пользователя для существующего сотрудника, позитивный тест")
-    @DisplayName("Тест добавление пользователя для существующего сотрудника, позитивный тест")
     @Severity(SeverityLevel.CRITICAL)
     @Feature("добавление пользователя в систему")
     @Story(value = "Сотрудник добавляет пользователя")
@@ -197,5 +195,5 @@ public class TestClass extends BeforeAfterEach {
         pimTab.selectSales();
         pimTab.chooseSalesEmployee();
         pimTab.checkAllPersonalDetails();
-    }*/
+    }
 }
