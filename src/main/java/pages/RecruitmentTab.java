@@ -11,8 +11,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RecruitmentTab {
     Candidate candidate = new Candidate();
-    protected static final String RECRUITMENTTABURL = "https://opensource-demo.orangehrmlive.com/index.php/recruitment/viewCandidates";
-    protected static final String ADDCANDIDATEURL = "https://opensource-demo.orangehrmlive.com/index.php/recruitment/addCandidate";
     protected SelenideElement recruitmentTab = $(byText("Recruitment"));
     protected SelenideElement candidatesAddButton = $(By.id("btnAdd"));
     protected SelenideElement candidateFirstNameField = $(By.id("addCandidate_firstName"));
@@ -46,7 +44,7 @@ public class RecruitmentTab {
         candidateEmailField.val(candidate.getEmail());
         candidateContactNoField.val(candidate.getContactNo());
         jobVacancyField.selectOption(2);
-      //  resumeField.uploadFromClasspath("resume.txt");
+        resumeField.uploadFromClasspath("resume.txt");
         keyWordsField.val(candidate.getKeyWords());
         commentField.val(candidate.getComment());
         keepDataCheckbox.click();

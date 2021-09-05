@@ -12,8 +12,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LeaveTab {
     String userName;
-    protected static final String LEAVETABURL ="https://opensource-demo.orangehrmlive.com/index.php/leave/viewLeaveList";
-    protected static final String ASSIGNLEAVETABURL ="https://opensource-demo.orangehrmlive.com/index.php/leave/assignLeave";
     protected SelenideElement leaveTab = $(byText("Leave"));
     protected SelenideElement leaveListTab = $(byText("Leave List"));
     protected SelenideElement assignLeaveTab = $(By.id("menu_leave_assignLeave"));
