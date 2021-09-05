@@ -61,7 +61,7 @@ public class PIMTab {
         lastNameField.should(Condition.exist);
         employeeIDField.should(Condition.exist);
         driversLicenseNoField.should(Condition.exist);
-        ssnNoField.should(Condition.exist);
+       // ssnNoField.should(Condition.exist);
         otherIDField.should(Condition.exist);
         licExpDateField.should(Condition.exist);
         sinNoField.should(Condition.exist);
