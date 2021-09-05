@@ -42,7 +42,7 @@ public class TestClass extends BeforeAfterEach {
 
     }
 
-    @Order(2)
+   /* @Order(2)
     @Test
     @Flaky
     @Description("Тест добавление пользователя для существующего сотрудника, позитивный тест")
@@ -197,5 +197,5 @@ public class TestClass extends BeforeAfterEach {
         pimTab.selectSales();
         pimTab.chooseSalesEmployee();
         pimTab.checkAllPersonalDetails();
-    }
+    }*/
 }
