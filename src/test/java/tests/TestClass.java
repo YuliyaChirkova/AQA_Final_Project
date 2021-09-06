@@ -185,5 +185,4 @@ public class TestClass extends BeforeAfterEach {
         adminTab.clickSaveButton();
         adminTab.checkUserExisting(user);
     }
-
 }
