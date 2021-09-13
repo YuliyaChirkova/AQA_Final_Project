@@ -1,5 +1,6 @@
 package tests;
 
+import data.Candidate;
 import data.User;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
@@ -14,7 +15,12 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestClass extends BeforeAfterEach {
     LoginPage loginPage = new LoginPage();
-    User user = new User();
+    User user = new User("Admin","admin123", "Alice Duval",
+            "Mark Shagal", "Al-Duv",
+            "QWER1234", "2021-11-01", "2021-11-10");
+    Candidate candidate = new Candidate("Karl", "Jordan",
+            "Franko", "franco@gmail.com", "1234567890",
+            "actor, drama, comedy", "comment");
     WelcomeUserElement welcomeUserElement = new WelcomeUserElement();
     AdminTab adminTab = new AdminTab();
     RecruitmentTab recruitmentTab = new RecruitmentTab();
@@ -60,7 +66,6 @@ public class TestClass extends BeforeAfterEach {
     @Story(value = "Сотрудник удаляет пользователя")
     public void deleteUserTest(){
         loginPage.openLoginPageAndLogin(user);
-
         adminTab.selectAdminTab();
         adminTab.addUserHeading.shouldBe(visible);
         adminTab.checkUserExisting(user);
@@ -73,7 +78,7 @@ public class TestClass extends BeforeAfterEach {
     @Order(4)
     @ParameterizedTest
     @CsvFileSource(resources = "/jobTitle.csv")
-    @Description("Тест добавление трех jobTitle, затем их удаление")
+    @Description("Тест удаление трех jobTitle")
     @Severity(SeverityLevel.NORMAL)
     @Feature("добавление и удаление jobTitle")
     public void addTreeJobTitleThenDeleteTest(String jobTitle, String jobDescription, String jobNote) {
@@ -96,9 +101,9 @@ public class TestClass extends BeforeAfterEach {
         loginPage.openLoginPageAndLogin(user);
         recruitmentTab.selectRecruitmentTab();
         recruitmentTab.clickAddButton();
-        recruitmentTab.fillAllCandidateFields();
-        recruitmentTab.saveCandidate();
-        recruitmentTab.checkCreationCandidate();
+        recruitmentTab.fillAllCandidateFields(candidate);
+        recruitmentTab.clickSaveCandidate();
+        recruitmentTab.checkCreationCandidate(candidate);
     }
 
     @Order(6)
@@ -110,12 +115,12 @@ public class TestClass extends BeforeAfterEach {
     @Story(value = "Сотрудник добавляет заявку на отпуск")
     public void assignLeaveTest() {
         loginPage.openLoginPageAndLogin(user);
-        leaveTab.selectLeaveTab();
-        leaveTab.selectAssignLeaveTab();
+        leaveTab.clickLeaveTab();
+        leaveTab.clickAssignLeaveTab();
         leaveTab.fillAllFieldsAssignLeave(user);
         leaveTab.clickAssignButton();
-        leaveTab.confirmLeaveButton();
-        leaveTab.selectLeaveListTab();
+        leaveTab.clickLeaveButton();
+        leaveTab.clickLeaveListTab();
         leaveTab.checkAssignInLeaveList(user);
     }
 
@@ -161,14 +166,12 @@ public class TestClass extends BeforeAfterEach {
     @Severity(SeverityLevel.MINOR)
     public void personalDetailsTest() {
         loginPage.openLoginPageAndLogin(user);
-
         pimTab.getPIMTab();
         pimTab.selectSales();
         pimTab.chooseSalesEmployee();
         pimTab.checkAllPersonalDetails();
     }
 
-    @Disabled ("Включить,если тест addUserTest() провалился")
     @Order(11)
     @Test
     @Description("Тест добавление пользователя для сотрудника, взятого из таблицы пользователей")

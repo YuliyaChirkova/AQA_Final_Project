@@ -6,14 +6,13 @@ import data.User;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LeaveTab {
-    String userName;
-    protected SelenideElement leaveTab = $(byText("Leave"));
-    protected SelenideElement leaveListTab = $(byText("Leave List"));
+
+    protected SelenideElement leaveTab = $(By.id("menu_leave_viewLeaveModule"));
+    protected SelenideElement leaveListTab = $(By.id("menu_leave_viewLeaveList"));
     protected SelenideElement assignLeaveTab = $(By.id("menu_leave_assignLeave"));
     protected SelenideElement employeeNameField = $(".ac_input.inputFormatHint");
     protected SelenideElement leaveTypeField = $(By.id("assignleave_txtLeaveType"));
@@ -26,7 +25,6 @@ public class LeaveTab {
     protected SelenideElement durationField = $(By.id("assignleave_firstDuration_duration"));
     protected SelenideElement ampmField = $(By.id("assignleave_firstDuration_ampm"));
     protected SelenideElement confirmLeaveButton = $(By.id("confirmOkButton"));
-    protected SelenideElement myUserInMyLeaveList = $(byXpath("//a[text()='"+userName+"']"));
 
     protected SelenideElement fromDateLeaveListField = $(By.id("calFromDate"));
     protected SelenideElement toDateLeaveListField = $(By.id("calToDate"));
@@ -35,21 +33,21 @@ public class LeaveTab {
     protected SelenideElement searchButton = $(By.id("btnSearch"));
 
     @Step("Переход во вкладку Leave")
-    public void selectLeaveTab(){
+    public void clickLeaveTab(){
         leaveTab.click();
     }
 
     @Step("Переход по ссылке Assign Leave")
-    public void selectAssignLeaveTab(){
+    public void clickAssignLeaveTab(){
         assignLeaveTab.click();
     }
 
     @Step("Переход по ссылке Leave List")
-    public void selectLeaveListTab(){
+    public void clickLeaveListTab(){
         leaveListTab.click();
     }
 
-    @Step("Проверка запроса на отпуск в списке запросов")
+    @Step("Проверка наличия запроса на отпуск в списке запросов")
     public void checkAssignInLeaveList(User user){
         fromDateLeaveListField.val(user.getFromDate());
         fromDateLeaveListField.pressEnter();
@@ -80,7 +78,7 @@ public class LeaveTab {
     }
 
     @Step("Подтверждение запроса на отпуск")
-    public void confirmLeaveButton(){
+    public void clickLeaveButton(){
         confirmLeaveButton.click();
     }
 

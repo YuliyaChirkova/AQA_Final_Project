@@ -12,11 +12,11 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class PIMTab {
-    protected SelenideElement pimTab = $(byText("PIM"));
+    protected SelenideElement pimTab = $(By.id("menu_pim_viewPimModule"));
     protected SelenideElement subUnitField = $(By.id("empsearch_sub_unit"));
     protected SelenideElement pimSearchButton = $(By.id("searchBtn"));
     protected ElementsCollection sales = $$(byXpath("//a[contains(@href, '/index.php/pim/viewEmployee/')]"));
-    protected SelenideElement personalDetailsHeader = $(byText("Personal Details"));
+    protected SelenideElement personalDetailsHeader = $(byXpath("//h1[text() = 'Personal Details']"));
 
     protected SelenideElement firstNameField = $(By.id("personal_txtEmpFirstName"));
     protected SelenideElement middleNameField = $(By.id("personal_txtEmpMiddleName"));

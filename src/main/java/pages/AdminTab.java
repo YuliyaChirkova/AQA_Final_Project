@@ -17,11 +17,11 @@ public class AdminTab {
 
 
     public String mainPageURL = "https://opensource-demo.orangehrmlive.com/index.php/dashboard";
-    public SelenideElement adminTab = $(byText("Admin"));
+    public SelenideElement adminTab = $(By.id("menu_admin_viewAdminModule"));
     public SelenideElement addButton = $(By.id("btnAdd"));
     public SelenideElement deleteUserButton = $(By.id("btnDelete"));
 
-    public SelenideElement addUserHeading = $(byText("System Users"));
+    public SelenideElement addUserHeading = $(byCssSelector(".toggle.tiptip"));
     public SelenideElement userRoleField = $(By.id("systemUser_userType"));
     public SelenideElement employeeNameField = $(By.id("systemUser_employeeName_empName"));
     public SelenideElement userNameField = $(By.id("systemUser_userName"));
@@ -32,9 +32,8 @@ public class AdminTab {
     public ElementsCollection employees = $$(byXpath("//tr[@class = 'odd']//td[4]"));
 
     public ElementsCollection users = $$ ("a[href^='saveSystemUser']");
-    public SelenideElement user = $(byText("Admin"));
     public SelenideElement jobTab = $(By.id("menu_admin_Job"));
-    public SelenideElement jobTitleLink = $(byText("Job Titles"));
+    public SelenideElement jobTitleLink = $(By.id("menu_admin_viewJobTitleList"));
     public SelenideElement jobTitleAddButton = $(By.id("btnAdd"));
     public SelenideElement jobTitleField = $(By.id("jobTitle_jobTitle"));
     public SelenideElement jobDescriptionField = $(By.id("jobTitle_jobDescription"));
@@ -113,6 +112,7 @@ public class AdminTab {
         jobSpecificationField.uploadFromClasspath("picture.jpg");
         jobNoteField.val(jobNote);
     }
+
     @Step("Выбор чекбокса добавленного JobTitle")
     public void clickCheckBox(String jobTitle){
         $(byXpath("//a[text()='"+jobTitle+"']/../..//input[@type='checkbox']")).click();

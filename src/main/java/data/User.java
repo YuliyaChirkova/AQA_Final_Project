@@ -2,15 +2,28 @@ package data;
 
 public class User {
 
-    public String userName ="Admin";
-    public String password = "admin123";
-    public String employeeName ="Alice Duval";
-    public String invalidEmployeeName ="Mark Shagal";
-    public String adminAddUserName = "Al-Duv";
-    public String adminAddUserPassword = "QWER1234";
-    public String fromDate = "2021-11-01";
-    public String toDate = "2021-11-10";
+    public String userName;
+    public String password;
+    public String employeeName;
+    public String invalidEmployeeName;
+    public String adminAddUserName;
+    public String adminAddUserPassword;
+    public String fromDate;
+    public String toDate;
 
+
+    public User(String userName, String password, String employeeName,
+                String invalidEmployeeName, String adminAddUserName,
+                String adminAddUserPassword, String fromDate, String toDate) {
+        this.userName = userName;
+        this.password = password;
+        this.employeeName = employeeName;
+        this.invalidEmployeeName = invalidEmployeeName;
+        this.adminAddUserName = adminAddUserName;
+        this.adminAddUserPassword = adminAddUserPassword;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+    }
 
     public String getUserName() {
         return userName;

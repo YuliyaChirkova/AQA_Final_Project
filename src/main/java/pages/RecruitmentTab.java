@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RecruitmentTab {
-    Candidate candidate = new Candidate();
+
     protected SelenideElement recruitmentTab = $(byText("Recruitment"));
     protected SelenideElement candidatesAddButton = $(By.id("btnAdd"));
     protected SelenideElement candidateFirstNameField = $(By.id("addCandidate_firstName"));
@@ -24,7 +24,7 @@ public class RecruitmentTab {
     protected SelenideElement commentField = $(By.id("addCandidate_comment"));
     protected SelenideElement keepDataCheckbox = $(By.id("addCandidate_consentToKeepData"));
     protected SelenideElement saveCandidateButton = $(By.id("btnSave"));
-    protected SelenideElement createdCandidate =$(byXpath("//td[contains(text(), 'added " + candidate.getFirstName()+" " + candidate.getMiddleName()+" " +candidate.getLastName()+"')]"));
+
 
     @Step("Переход во вкладку Recruitment")
     public void selectRecruitmentTab(){
@@ -37,7 +37,7 @@ public class RecruitmentTab {
     }
 
     @Step("Заполнение всех полей в форме Add Candidate")
-    public void fillAllCandidateFields(){
+    public void fillAllCandidateFields(Candidate candidate){
         candidateFirstNameField.val(candidate.getFirstName());
         candidateMiddleNameField.val(candidate.getMiddleName());
         candidateLastNameField.val(candidate.getLastName());
@@ -51,12 +51,14 @@ public class RecruitmentTab {
     }
 
     @Step("Нажатие на кнопку save")
-    public void saveCandidate(){
+    public void clickSaveCandidate(){
         saveCandidateButton.click();
     }
 
     @Step("Проверка наличия созданного кандидата")
-    public void checkCreationCandidate(){
-        createdCandidate.should(Condition.exist);
+    public void checkCreationCandidate(Candidate candidate){
+        $(byXpath("//td[contains(text(), 'added " + candidate.getFirstName()+" "
+                + candidate.getMiddleName()+" " +candidate.getLastName()+"')]"))
+                .should(Condition.exist);
     }
 }

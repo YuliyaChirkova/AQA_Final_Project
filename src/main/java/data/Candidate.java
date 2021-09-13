@@ -1,14 +1,25 @@
 package data;
 
 public class Candidate {
-    public String firstName = "Karl";
-    public String middleName = "Jordan";
-    public String lastName = "Franko";
-    public String email = "franco@gmail.com";
-    public String contactNo = "1234567890";
-    public String keyWords = "actor, drama, comedy";
-    public String comment = "comment";
-    public String dateOfApplication = "2021-08-31";
+    public String firstName;
+    public String middleName;
+    public String lastName;
+    public String email;
+    public String contactNo;
+    public String keyWords;
+    public String comment;
+
+    public Candidate(String firstName, String middleName, String lastName,
+                     String email, String contactNo, String keyWords,
+                     String comment) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.email = email;
+        this.contactNo = contactNo;
+        this.keyWords = keyWords;
+        this.comment = comment;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -36,9 +47,5 @@ public class Candidate {
 
     public String getComment() {
         return comment;
-    }
-
-    public String getDateOfApplication() {
-        return dateOfApplication;
     }
 }
